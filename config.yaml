@@ -1,0 +1,28 @@
+app:
+  name: estore-product-kube-controller
+  freeze:
+    startTime: 2020-01-01T21:22:18-08:00
+    endTime: 2020-01-02T21:22:18-08:00
+    message: application not available at this point of time to use due to code release
+    components: all
+  log:
+    level: debug
+    format: text
+    file:
+      enabled: false
+      format: json
+      dir: /tmp
+      name: estore.log
+      # size in MB
+      size: 5
+      age: 5
+      backup: 3
+  system:
+    namespaces: kube, default
+    users: system:serviceaccount:kube
+  blacklist:
+    namespaces: virus
+    users: stranger
+cluster:
+  name: minikube
+  kubeconfig: /Users/arselvan/.kube/config
